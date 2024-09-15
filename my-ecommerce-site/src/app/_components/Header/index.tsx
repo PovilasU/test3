@@ -64,7 +64,7 @@ export async function Header() {
             />
           </Link>
           {/* seach bar */}
-          <h1>Welcome to Our eShop</h1>
+          {/* <h1>Welcome to Our eShop</h1> */}
           <SearchBar />
           {/* seach bar */}
           <HeaderNav header={header} />
