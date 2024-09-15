@@ -10,6 +10,8 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import dotenv from 'dotenv'
 import path from 'path'
 import { buildConfig } from 'payload/config'
+//adding search plugin
+import search from '@payloadcms/plugin-search'
 
 import Categories from './collections/Categories'
 import { Media } from './collections/Media'
@@ -120,6 +122,13 @@ export default buildConfig({
     },
   ],
   plugins: [
+    // search({
+    //   collections: ['pages', 'posts'],
+    //   defaultPriorities: {
+    //     pages: 10,
+    //     posts: 20,
+    //   },
+    // }),
     stripePlugin({
       stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
       isTestKey: Boolean(process.env.PAYLOAD_PUBLIC_STRIPE_IS_TEST_KEY),
@@ -144,4 +153,7 @@ export default buildConfig({
     }),
     payloadCloud(),
   ],
+  //
+
+  //
 })
