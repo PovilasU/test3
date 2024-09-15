@@ -12,6 +12,7 @@ import path from 'path'
 import { buildConfig } from 'payload/config'
 //adding search plugin
 import search from '@payloadcms/plugin-search'
+import payload from 'payload' // Import the payload object
 
 import Categories from './collections/Categories'
 import { Media } from './collections/Media'
@@ -97,7 +98,26 @@ export default buildConfig({
   csrf: ['https://checkout.stripe.com', process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(
     Boolean,
   ),
+
   endpoints: [
+    {
+      path: '/api/products',
+      method: 'get',
+      handler: async (req, res) => {
+        const { search } = req.query
+        try {
+          const products = await payload.find({
+            collection: 'products',
+            where: {
+              name: { contains: search },
+            },
+          })
+          res.json(products.docs)
+        } catch (error) {
+          res.status(500).json({ error: 'Error fetching products' })
+        }
+      },
+    },
     {
       path: '/create-payment-intent',
       method: 'post',

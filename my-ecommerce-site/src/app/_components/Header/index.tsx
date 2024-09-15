@@ -2,6 +2,8 @@
 
 import React from 'react'
 import Link from 'next/link'
+// search bar
+import SearchBar from '../../components/SearchBar'
 
 import type { Header } from '../../../payload/payload-types'
 import { fetchHeader } from '../../_api/fetchGlobals'
@@ -61,6 +63,10 @@ export async function Header() {
               // src="https://b3group.lt/image/cache/catalog/Group%207732-333x329.png.webp"
             />
           </Link>
+          {/* seach bar */}
+          <h1>Welcome to Our eShop</h1>
+          <SearchBar />
+          {/* seach bar */}
           <HeaderNav header={header} />
         </Gutter>
       </header>
