@@ -32,8 +32,10 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
       {user && <Link href="/account">Account</Link>}
       {!user && (
         <React.Fragment>
-          <Link href="/login">Login</Link>
-          <Link href="/create-account">Create Account</Link>
+          <Link href="/login">Prisijungti</Link>
+          <Link href="/create-account">Registruotis</Link>
+          <Link href="#">Mano Pageidavimai</Link>
+          <Link href="#">Palyginti</Link>
         </React.Fragment>
       )}
     </nav>

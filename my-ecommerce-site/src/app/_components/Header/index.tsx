@@ -1,6 +1,4 @@
-{
-  /* eslint-disable @next/next/no-img-element */
-}
+/* eslint-disable @next/next/no-img-element */
 
 import React from 'react'
 import Link from 'next/link'
@@ -11,6 +9,9 @@ import { Gutter } from '../Gutter'
 import { HeaderNav } from './Nav'
 
 import classes from './index.module.scss'
+
+//import logo from '../../images/3b.svg'
+import logo from '../../images/3b.svg'
 
 export async function Header() {
   let header: Header | null = null
@@ -27,17 +28,37 @@ export async function Header() {
   return (
     <>
       <header className={classes.header}>
+        <div className={classes['header-top']}>
+          <Gutter className={classes.wrap}>
+            <div className={classes['header-top-content']}>
+              <span>Susisiekite : +370 682 06209</span>
+              <div className={classes['header-top-links']}>
+                {/* <span>prekybos vietos</span> */}
+                <Link href="/login">
+                  {' '}
+                  <span>Prekybos vietos</span>
+                </Link>
+                {/* <Link href="/login">Login</Link>
+                <Link href="/register">Register</Link> */}
+              </div>
+            </div>
+          </Gutter>
+        </div>
+      </header>
+      {/*  */}
+      <header className={classes.header}>
         <Gutter className={classes.wrap}>
           <Link href="/">
             {/* Cannot use the `<picture>` element here with `srcSet`
-              This is because the theme is able to be overridden by the user
-              And so `@media (prefers-color-scheme: dark)` will not work
-              Instead, we just use CSS to invert the color via `filter: invert(1)` based on `[data-theme="dark"]`
-            */}
+                This is because the theme is able to be overridden by the user
+                And so `@media (prefers-color-scheme: dark)` will not work
+                Instead, we just use CSS to invert the color via `filter: invert(1)` based on `[data-theme="dark"]`
+              */}
             <img
               className={classes.logo}
               alt="Payload Logo"
               src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/payload/src/admin/assets/images/payload-logo-light.svg"
+              // src="https://b3group.lt/image/cache/catalog/Group%207732-333x329.png.webp"
             />
           </Link>
           <HeaderNav header={header} />

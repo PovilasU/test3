@@ -20,3 +20,64 @@
     filter: invert(1);
   }
 }
+
+
+// .header-top {
+//   background-color: black;
+//   border-bottom: 100px solid red;
+
+//   @media (max-width: 768px) {
+//     display: none; // Hide on mobile
+//   }
+
+//   @media (max-width: 1024px) and (min-width: 769px) {
+//     display: none; // Hide on tablet
+//   }
+// }
+
+// 
+.header {
+  .header-top {
+    background-color: black;
+    color: white;
+    border-bottom: 1px solid black;
+
+    @media (max-width: 768px) {
+      display: none; // Hide on mobile
+    }
+
+    @media (max-width: 1024px) and (min-width: 769px) {
+      display: none; // Hide on tablet
+    }
+
+    .header-top-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+
+      .header-top-links {
+        a {
+          color: white;
+          margin-left: 15px;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+
+    .logo {
+      max-height: 50px;
+    }
+  }
+}
