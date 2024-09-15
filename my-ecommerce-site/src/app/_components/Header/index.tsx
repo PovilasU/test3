@@ -11,6 +11,7 @@ import { Gutter } from '../Gutter'
 import { HeaderNav } from './Nav'
 
 import classes from './index.module.scss'
+import '../../styles/global.css'
 
 //import logo from '../../images/3b.svg'
 import logo from '../../images/3b.svg'
@@ -29,6 +30,9 @@ export async function Header() {
 
   return (
     <>
+      {/* <div className="topBlock">
+        <a>test</a>
+      </div> */}
       <header className={classes.header}>
         <div className={classes['header-top']}>
           <Gutter className={classes.wrap}>
@@ -63,13 +67,34 @@ export async function Header() {
               // src="https://b3group.lt/image/cache/catalog/Group%207732-333x329.png.webp"
             />
           </Link>
+          {/* <SearchBar /> */}
           {/* seach bar */}
           {/* <h1>Welcome to Our eShop</h1> */}
-          <SearchBar />
+          {/* <SearchBar /> */}
           {/* seach bar */}
           <HeaderNav header={header} />
+          <MenuBar /> {/* Add the MenuBar component here */}
         </Gutter>
+        <div className="bg-red-500 p-4">This should have a red background and padding.</div>
       </header>
     </>
+  )
+}
+const MenuBar: React.FC = () => {
+  return (
+    <nav className="flex space-x-4">
+      <Link href="/" passHref>
+        <span className="text-gray-700 hover:text-blue-500">Home</span>
+      </Link>
+      <Link href="/shop" passHref>
+        <span className="text-gray-700 hover:text-blue-500">Shop</span>
+      </Link>
+      <Link href="/about" passHref>
+        <span className="text-gray-700 hover:text-blue-500">About</span>
+      </Link>
+      <Link href="/contact" passHref>
+        <span className="text-gray-700 hover:text-blue-500">Contact</span>
+      </Link>
+    </nav>
   )
 }

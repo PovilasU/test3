@@ -2,6 +2,8 @@
 @use './colors.scss' as *;
 @use './type.scss' as *;
 @import "./theme.scss";
+@import '../styles/global.css';
+
 
 :root {
   --base: 24px;
